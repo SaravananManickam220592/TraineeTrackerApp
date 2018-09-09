@@ -1,0 +1,75 @@
+<div class="container" id="addTraineeFormContainer">
+  <h2>Trainee Details</h2>
+  <form #addTraineeForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">First Name</label>
+        <input type="text" ngModel #firstName="ngModel" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+          <div *ngIf="firstName.errors.required"> First Name is Required</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Last Name</label>
+        <input type="text" ngModel class="form-control" #lastName="ngModel" id="lastName" name="lastName" placeholder="last Name" required>
+        <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid">
+          <div *ngIf="lastName.errors.required"> Last Name is Required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="traineeEmail">Email</label>
+        <input type="email" ngModel class="form-control" #traineeEmail="ngModel" id="traineeEmail" name="traineeEmail" placeholder="Email" required>
+        <div class="alert alert-danger" *ngIf="traineeEmail.touched && traineeEmail.invalid">
+          <div *ngIf="traineeEmail.errors.required"> Email is Required</div>
+          <div *ngIf="traineeEmail.errors.email"> Invalid Email format</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="traineeMobileNo">Mobile Number</label>
+        <input type="text" ngModel  class="form-control" #traineeMobileNo="ngModel" id="traineeMobileNo" name="traineeMobileNo" placeholder="Mobile Number" minlength="10" required>
+        <div class="alert alert-danger" *ngIf="traineeMobileNo.touched && traineeMobileNo.invalid">
+          <div *ngIf="traineeMobileNo.errors.required"> Mobile No is Required</div>
+          <div *ngIf="traineeMobileNo.errors.minlength"> Mobile No should be 10 digits</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="profession">Profession</label>
+        <select id="profession" ngModel #profession="ngModel" class="form-control" required name="profession" >
+          <option selected value="">Choose...</option>
+          <option value="Student">Student</option>
+          <option value="Working">Working</option>
+          <option value="UnEmployed">UnEmployed</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="profession.touched && profession.invalid">
+          <div *ngIf="profession.errors.required"> Profession is Required</div>
+        </div>
+      </div>
+      <div class="form-group col-md-5">
+        <label for="traineeInstution">Instution</label>
+        <input type="text" ngModel #traineeInstution="ngModel" class="form-control" id="traineeInstution" name="traineeInstution" required>
+        <div class="alert alert-danger" *ngIf="traineeInstution.touched && traineeInstution.invalid">
+          <div *ngIf="traineeInstution.errors.required"> Last Name is Required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="joiningDate">Joining Date</label>
+        <div class="input-group">
+        <input class="form-control" ngModel  placeholder="yyyy-mm-dd" #joiningDate="ngModel" name="joiningDate" id="joiningDate" name="joiningDate" ngbDatepicker #d="ngbDatepicker" required>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Select Date</button>
+        </div>
+        <div class="alert alert-danger" *ngIf="joiningDate.touched && joiningDate.invalid">
+          <div *ngIf="joiningDate.errors.required"> Last Name is Required</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="form-group">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="addTraineeForm.invalid">Submit</button>
+  </form>
+</div>

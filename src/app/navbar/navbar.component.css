@@ -1,0 +1,12 @@
+.navbar-brand{
+    font-weight: bold;
+    color : darkseagreen;
+}
+
+#navbarText .navbar-nav .nav-item .nav-link{
+    color: azure;
+}
+
+#navbarText .navbar-nav .nav-item.active .nav-link{
+    color: burlywood;
+}
