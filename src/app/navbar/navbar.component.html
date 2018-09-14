@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="#">Trainee Tracker</a>
+  <a class="navbar-brand" routerLink="">Trainee Tracker</a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -8,13 +8,23 @@
         </a>
       </li>
       <li  class="nav-item dropdown">
-        <a  class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+        <a  class="nav-link dropdown-toggle menuLinks" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           Trainees
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="addTrainee">New Trainee</a>
-            <a class="dropdown-item" routerLink="traineeDetails">Trainee Details</a>
+            <a class="dropdown-item menuLinks" routerLink="addTrainee">New Trainee</a>
+            <a class="dropdown-item menuLinks" routerLink="traineeDetails">Trainee Details</a>
+          </div>
+      </li>
+      <li  class="nav-item dropdown">
+        <a  class="nav-link dropdown-toggle menuLinks" id="feedbackDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Feedback
+        </a>
+        <div class="dropdown-menu" aria-labelledby="feedbackDropdown">
+            <a class="dropdown-item menuLinks" routerLink="addFeedback">Add Feedback</a>
+            <a class="dropdown-item menuLinks" routerLink="viewFeedbacks">View Feedbacks</a>
           </div>
       </li>
     </ul>

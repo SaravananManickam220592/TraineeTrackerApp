@@ -1,6 +1,9 @@
 <div class="container" id="addTraineeFormContainer">
   <h2>Trainee Details</h2>
-  <form #addTraineeForm="ngForm">
+  <div class="alert alert-success" *ngIf="addTraineeStatus" role="alert">
+    Trainee Detail added successfully
+  </div>
+  <form #addTraineeForm="ngForm" (ngSubmit)="saveTrainee(addTraineeForm)">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstName">First Name</label>
@@ -28,15 +31,16 @@
       </div>
       <div class="form-group col-md-6">
         <label for="traineeMobileNo">Mobile Number</label>
-        <input type="text" ngModel  class="form-control" #traineeMobileNo="ngModel" id="traineeMobileNo" name="traineeMobileNo" placeholder="Mobile Number" minlength="10" required>
+        <input type="text" ngModel  class="form-control" #traineeMobileNo="ngModel" id="traineeMobileNo" name="traineeMobileNo" placeholder="Mobile Number" minlength="10" maxlength="10" required>
         <div class="alert alert-danger" *ngIf="traineeMobileNo.touched && traineeMobileNo.invalid">
           <div *ngIf="traineeMobileNo.errors.required"> Mobile No is Required</div>
-          <div *ngIf="traineeMobileNo.errors.minlength"> Mobile No should be 10 digits</div>
+          <div *ngIf="traineeMobileNo.errors.minlength"> Mobile No should have minimum 10 digits</div>
+          <div *ngIf="traineeMobileNo.errors.maxlength"> Mobile No should have maximum 10 digits</div>
         </div>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-3">
         <label for="profession">Profession</label>
         <select id="profession" ngModel #profession="ngModel" class="form-control" required name="profession" >
           <option selected value="">Choose...</option>
@@ -48,28 +52,31 @@
           <div *ngIf="profession.errors.required"> Profession is Required</div>
         </div>
       </div>
-      <div class="form-group col-md-5">
+      <div class="form-group col-md-3">
         <label for="traineeInstution">Instution</label>
         <input type="text" ngModel #traineeInstution="ngModel" class="form-control" id="traineeInstution" name="traineeInstution" required>
         <div class="alert alert-danger" *ngIf="traineeInstution.touched && traineeInstution.invalid">
           <div *ngIf="traineeInstution.errors.required"> Last Name is Required</div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-md-2">
         <label for="joiningDate">Joining Date</label>
         <div class="input-group">
         <input class="form-control" ngModel  placeholder="yyyy-mm-dd" #joiningDate="ngModel" name="joiningDate" id="joiningDate" name="joiningDate" ngbDatepicker #d="ngbDatepicker" required>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Select Date</button>
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <i class="far fa-calendar-alt"></i>
+          </button>
         </div>
         <div class="alert alert-danger" *ngIf="joiningDate.touched && joiningDate.invalid">
-          <div *ngIf="joiningDate.errors.required"> Last Name is Required</div>
+          <div *ngIf="joiningDate.errors.required"> Joining is Required</div>
         </div>
       </div>
       </div>
     </div>
-    <div class="form-group">
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="addTraineeForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-success subBtn" [disabled]="addTraineeForm.invalid">     
+      Submit
+    </button>
+    <button type="reset" class="btn btn-danger" >Reset</button>
   </form>
 </div>

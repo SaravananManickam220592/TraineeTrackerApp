@@ -1,0 +1,41 @@
+<div class="container" id="addFeedbackFormContainer">
+  <h2>Feedback</h2>
+  <div class="alert alert-success" *ngIf="addFeedbackStatus" role="alert">
+      Thanks for your Valuable Feedback
+    </div>
+  <form #addFeedbackForm="ngForm" (ngSubmit)="addFeedback(addFeedbackForm)">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="fullname">Fullname</label>
+        <input type="text" ngModel #fullname="ngModel" class="form-control" id="fullname" name="fullname" placeholder="Name is Optional">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="courseName">Course</label>
+        <select id="courseName" ngModel #courseName="ngModel" class="form-control" required name="courseName">
+          <option selected value="">Choose...</option>
+          <option value="angular">Angular</option>
+          <option value="java">Core and Advanced Java</option>
+          <option value="spring">Spring and Hibernate</option>
+          <option value="javascript">Javascript</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="comments">Your Comments</label>
+        <textarea class="form-control" id="comments" ngModel #comments="ngModel" name="comments" rows="6" required></textarea>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="ratings">Your Ratings</label>
+        <ngb-rating [(rate)]="ratings" max="5" ngModel  name="ratings"  required>
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </div>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="btn btn-success" [disabled]="addFeedbackForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>

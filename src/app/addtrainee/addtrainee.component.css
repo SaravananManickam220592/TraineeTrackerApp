@@ -1,4 +1,8 @@
 #addTraineeFormContainer{
     padding: 10px;
-    margin-top : 2%;
+    margin-top : 1%;
+}
+
+.subBtn{
+    margin-right: 1%;
 }

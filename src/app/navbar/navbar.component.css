@@ -10,3 +10,7 @@
 #navbarText .navbar-nav .nav-item.active .nav-link{
     color: burlywood;
 }
+
+.menuLinks{
+    cursor: pointer;
+}

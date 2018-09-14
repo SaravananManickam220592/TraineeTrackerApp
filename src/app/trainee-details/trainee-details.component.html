@@ -1,0 +1,23 @@
+<div class="traineeDetailsContainer" >
+<h3 class="traineeHeading">Trainee Details</h3>
+<div class="grid-wrapper">
+    <kendo-grid
+    [data]="traineeGridData"
+    [pageSize]="state.take"
+    [skip]="state.skip"
+    [sort]="state.sort"
+    [filter]="state.filter"
+    [sortable]="true"
+    [pageable]="true"
+    [filterable]="true">
+    <kendo-grid-column title="FirstName" field="firstName" [sortable]="true" width="100"></kendo-grid-column>
+    <kendo-grid-column title="LastName" field="lastName" [sortable]="true" width="100"></kendo-grid-column>
+    <kendo-grid-column title="Email" field="traineeEmail" width="100"></kendo-grid-column>
+    <kendo-grid-column title="MobileNo" field="traineeMobileNo" width="100"></kendo-grid-column>
+    <kendo-grid-column title="Profession" field="traineeInstution" width="100"></kendo-grid-column>
+    <kendo-grid-column title="Institution" field="profession" width="100"></kendo-grid-column>
+    <kendo-grid-column field="Joining Date" field="joiningDate" [sortable]="true" width="100"></kendo-grid-column>
+  </kendo-grid>
+  <div *ngIf="loading" class="k-i-loading"></div>
+</div>
+</div>
